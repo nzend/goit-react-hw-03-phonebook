@@ -69,12 +69,22 @@ class App extends React.Component {
           Phone<span className={css.titlePart}>book</span>
         </h1>
         <Form contacts={contacts} onSubmit={this.addContact}></Form>
-        <h2 className={css.contactsTitle}>Contacts</h2>
-        <Filter filter={this.state.filter} onChangefilter={this.changeFilter} />
-        <ContactsList
-          contacts={visibleContacts}
-          onDeleteContact={this.deleteContact}
-        ></ContactsList>
+
+        {this.state.contacts.length !== 0 ? (
+          <>
+            <h2 className={css.contactsTitle}>Contacts</h2>
+            <Filter
+              filter={this.state.filter}
+              onChangefilter={this.changeFilter}
+            />
+            <ContactsList
+              contacts={visibleContacts}
+              onDeleteContact={this.deleteContact}
+            ></ContactsList>
+          </>
+        ) : (
+          <p className={css.empty__notification}>The contact list is empty</p>
+        )}
       </div>
     );
   }

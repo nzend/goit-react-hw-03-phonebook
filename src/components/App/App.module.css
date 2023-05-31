@@ -14,3 +14,7 @@
 .contactsTitle {
   margin-bottom: 30px;
 }
+
+.empty__notification {
+  font-weight: 500;
+}
